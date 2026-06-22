@@ -23,6 +23,8 @@ It combines secure authentication, AES-256 encryption, audit logging, and role-b
 ---
 
 ## 📁 Project Structure
+
+```text
 securevault/
 │
 ├── 📄 app.py
@@ -33,7 +35,8 @@ securevault/
 ├── 🛣️ routes/
 ├── 🛡️ services/
 ├── 🎨 static/
-└── 📄 templates
+└── 📄 templates/
+
 
 📸 Main Modules
 
