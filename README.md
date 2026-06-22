@@ -37,24 +37,32 @@ securevault/
 ├── 🎨 static/
 └── 📄 templates/
 
+## 🧩 Main Modules
 
-📸 Main Modules
-
-🏠 Home Page
+🏠 **Home Page**  
 Provides an overview of SecureVault and its security features.
 
-👤 User Registration and Login
-Allows users to create accounts and access their secure dashboard.
+👤 **User Registration and Login**  
+Allows users to create accounts, log in securely, and access their dashboard.
 
-📁 Secure Records
-Users can add and manage encrypted records.
+📁 **Secure Records**  
+Allows users to add, view, and manage encrypted sensitive records.
 
-📊 Admin Dashboard
-Allows administrators to view users, alerts, and audit logs.
+📊 **Admin Dashboard**  
+Allows administrators to monitor users, security alerts, and audit logs.
 
-🚨 Security Alerts
-Tracks suspicious login and registration attempts
+🚨 **Security Alerts**  
+Tracks suspicious login and registration attempts for security monitoring.
 
-👩‍💻 Author
+🔐 **AES-256 Encryption Service**  
+Encrypts sensitive data before it is stored in the database.
+
+🎫 **Capability Token Service**  
+Controls access to protected server features using secure tokens.
+
+📋 **Audit Log Service**  
+Records important actions such as registration, login, logout, failed attempts, and security alerts.
+
+👩‍💻 **Author**
 Boomika Govindarajan
 🎓 B.Tech Information Technology Student
