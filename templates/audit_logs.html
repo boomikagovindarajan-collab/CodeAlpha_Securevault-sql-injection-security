@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Security Dashboard | SecureVault{% endblock %}
+
+{% block content %}
+<section class="dashboard-header">
+    <div>
+        <p class="tag">ADMIN SECURITY MONITORING</p>
+        <h1>Security Operations Dashboard</h1>
+        <p>Monitor users, encrypted records, and suspicious activity.</p>
+    </div>
+</section>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <p>Total Users</p>
+        <h2>{{ total_users }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <p>Total Secure Records</p>
+        <h2>{{ total_records }}</h2>
+    </div>
+
+    <div class="stat-card alert-stat">
+        <p>Security Alerts</p>
+        <h2>{{ security_alerts }}</h2>
+    </div>
+</div>
+
+<section class="records-section">
+    <div class="section-heading">
+        <div>
+            <h2>Recent Security Audit Logs</h2>
+            <p>Latest authentication, storage, and suspicious-request events.</p>
+        </div>
+    </div>
+
+    {% if logs %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Event Type</th>
+                        <th>Details</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.created_at.strftime("%d %b %Y %I:%M %p") }}</td>
+                        <td><span class="event-badge">{{ log.event_type }}</span></td>
+                        <td>{{ log.event_details }}</td>
+                        <td>{{ log.ip_address or "Not available" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h3>No audit logs found</h3>
+            <p>Security events will appear here when users interact with the system.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Login | SecureVault{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <p class="tag">SECURE ACCESS</p>
+    <h2>Welcome Back</h2>
+    <p class="form-description">
+        Login to access your encrypted records and security dashboard.
+    </p>
+
+    {% if security_message %}
+        <div class="security-warning">
+            <strong>Security Alert:</strong> {{ security_message }}
+        </div>
+    {% endif %}
+
+    {% if error_message %}
+        <div class="login-error">
+            <strong>Login Failed:</strong> {{ error_message }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        <label>Username</label>
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter your username"
+            required
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+        >
+
+        <button type="submit" class="primary-button full-button">
+            Login Securely
+        </button>
+        
+    </form>
+
+    <p class="form-footer">
+        New to SecureVault?
+        <a href="{{ url_for('auth.register') }}">Create an account</a>
+    </p>
+</div>
+{% endblock %}

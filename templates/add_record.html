@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Add Secure Record | SecureVault{% endblock %}
+
+{% block content %}
+<div class="form-card wide-form">
+    <p class="tag">ENCRYPTED DATA STORAGE</p>
+    <h2>Add Confidential Record</h2>
+    <p class="form-description">
+        Your information is encrypted before it is stored in the SecureVault database.
+    </p>
+
+    <form method="POST">
+        <label>Confidential Information</label>
+        <textarea
+            name="sensitive_data"
+            placeholder="Enter confidential information here..."
+            required
+        ></textarea>
+
+        <button type="submit" class="primary-button full-button">
+            Encrypt and Store Record
+        </button>
+    </form>
+
+    <p class="security-note">
+        Security check: suspicious requests are blocked and logged before storage.
+    </p>
+</div>
+{% endblock %}

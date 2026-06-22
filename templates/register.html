@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Create Account | SecureVault{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <p class="tag">SECURE REGISTRATION</p>
+    <h2>Create Your SecureVault Account</h2>
+    <p class="form-description">
+        Your password will be securely hashed before storage.
+    </p>
+
+    <form method="POST">
+        <label>Username</label>
+        <input
+            type="text"
+            name="username"
+            placeholder="Example: boomika_01"
+            required
+        >
+
+        <label>Email Address</label>
+        <input
+            type="email"
+            name="email"
+            placeholder="example@email.com"
+            required
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            name="password"
+            placeholder="Minimum 8 characters"
+            required
+        >
+
+        <button type="submit" class="primary-button full-button">
+            Create Secure Account
+        </button>
+    </form>
+
+    <p class="form-footer">
+        Already registered?
+        <a href="{{ url_for('auth.login') }}">Login here</a>
+    </p>
+</div>
+{% endblock %}

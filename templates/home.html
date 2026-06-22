@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}SecureVault | Secure Data Protection{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="tag">CLOUD SECURITY PLATFORM</p>
+        <h1>Protect Sensitive Data Before It Becomes a Data Leak.</h1>
+        <p class="hero-text">
+            SecureVault is a cloud-based data protection platform designed to
+            prevent SQL injection, encrypt confidential records, and monitor
+            suspicious security events.
+        </p>
+
+        {% if not current_user.is_authenticated %}
+            <a class="primary-button" href="{{ url_for('auth.register') }}">
+                Get Started Securely
+            </a>
+            <a class="secondary-button" href="{{ url_for('auth.login') }}">
+                Sign In
+            </a>
+        {% else %}
+            <a class="primary-button" href="{{ url_for('user.dashboard') }}">
+                Open Dashboard
+            </a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="feature-grid">
+    <div class="feature-card">
+        <h3>SQL Injection Prevention</h3>
+        <p>Uses ORM-based database operations, input validation, and suspicious-request detection.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>AES-256 Encryption</h3>
+        <p>Confidential records are encrypted before being stored in the database.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Capability Tokens</h3>
+        <p>Protected actions require a valid, time-limited capability token.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Audit Monitoring</h3>
+        <p>Security events such as failed logins and blocked requests are recorded.</p>
+    </div>
+</section>
+
+<section class="security-section">
+    <h2>Defense-in-Depth Security Model</h2>
+    <div class="security-layers">
+        <div>
+            <span>Layer 1</span>
+            <h3>Application Security</h3>
+            <p>Authentication, validation, SQL injection detection, secure sessions, and access control.</p>
+        </div>
+
+        <div>
+            <span>Layer 2</span>
+            <h3>Data Security</h3>
+            <p>AES encryption, password hashing, audit logs, and controlled database access.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

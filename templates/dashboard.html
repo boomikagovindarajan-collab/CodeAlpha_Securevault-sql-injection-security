@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | SecureVault{% endblock %}
+
+{% block content %}
+<section class="dashboard-header">
+    <div>
+        <p class="tag">SECURE USER DASHBOARD</p>
+        <h1>Welcome, {{ current_user.username }}</h1>
+        <p>Your confidential records are encrypted before database storage.</p>
+    </div>
+
+    <a class="primary-button" href="{{ url_for('user.add_record') }}">
+        + Add Secure Record
+    </a>
+</section>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <p>Encrypted Records</p>
+        <h2>{{ records|length }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <p>Encryption Standard</p>
+        <h2>AES-256</h2>
+    </div>
+
+    <div class="stat-card">
+        <p>Session Protection</p>
+        <h2>Active</h2>
+    </div>
+</div>
+
+<section class="records-section">
+    <div class="section-heading">
+        <div>
+            <h2>Your Secure Records</h2>
+            <p>Only you can access these records through your authorized session.</p>
+        </div>
+    </div>
+
+    {% if records %}
+        <div class="record-list">
+            {% for record in records %}
+                <article class="record-card">
+                    <div class="record-content">
+                        <span class="record-id">Record #{{ record.id }}</span>
+                        <p>{{ record.data }}</p>
+                        <small>Created: {{ record.created_at.strftime("%d %b %Y, %I:%M %p") }}</small>
+                    </div>
+
+                    <form method="POST" action="{{ url_for('user.delete_record', record_id=record.id) }}">
+                        <button class="delete-button" type="submit">
+                            Delete
+                        </button>
+                    </form>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h3>No secure records yet</h3>
+            <p>Add your first confidential record. It will be encrypted before storage.</p>
+            <a class="primary-button" href="{{ url_for('user.add_record') }}">
+                Add Secure Record
+            </a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
