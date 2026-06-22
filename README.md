@@ -65,6 +65,7 @@ Controls access to protected server features using secure tokens.
 📋 **Audit Log Service**  
 Records important actions such as registration, login, logout, failed attempts, and security alerts.
 
-👩‍💻 **Author**
+
+## 👩‍💻 Author
 Boomika Govindarajan
 🎓 B.Tech Information Technology Student
